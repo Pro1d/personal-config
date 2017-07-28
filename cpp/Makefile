@@ -9,6 +9,9 @@
 SOURCE_DIR:=./src
 SOURCE_FILE_EXTENSION:=cpp
 
+## [Include directory] ##
+INCLUDE_DIR:=./include
+
 ## [Object directory] ##
 OBJECT_DIR:=./obj
 
@@ -19,7 +22,7 @@ TARGET:=program
 CXX:=g++
 
 ## [Compiler flags] ##
-CXXFLAGS +=-Wall -std=c++11 -I$(SOURCE_DIR)
+CXXFLAGS +=-Wall -std=c++11 -I$(INCLUDE_DIR)
 
 ## [Linker flags] ##
 LDFLAGS =-lm
@@ -56,7 +59,7 @@ $(TARGET): $(OBJECTS)
 -include $(OBJECTS:.o=.d)
 
 # Compile sources with dependency auto-gen
-$(OBJECT_DIR)/%.o: $(SOURCE_DIR)/%.cpp
+$(OBJECT_DIR)/%.o: $(SOURCE_DIR)/%.$(SOURCE_FILE_EXTENSION)
 	@# make object directory
 	@mkdir -p $(@D)
 	@echo -e '\e[1;34mCompile "$<"\e[0m'
