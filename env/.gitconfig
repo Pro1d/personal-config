@@ -1,0 +1,16 @@
+[push]
+	default = simple
+[alias]
+	m = merge --no-ff
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	l = log --graph --all --decorate --pretty='%Cblue%cn %Cgreen%cd%Creset %C(auto)%d% %s' --date='format:%a%H:%M'
+	s = status -s
+	b = branch
+	co = checkout
+	ci = commit
+[credential]
+	helper = cache --timeout=36000
+[core]
+	editor = vim
+[color]
+	ui = auto
